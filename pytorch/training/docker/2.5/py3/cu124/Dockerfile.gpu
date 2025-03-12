@@ -410,7 +410,7 @@ RUN pip install --no-cache-dir -U \
     ${TORCHAUDIO_URL} \
     ${TORCHTEXT_URL} \
     torchtnt \
-    triton \
+    "triton<=3.1.0" \
     s3torchconnector \
     fastai \
     accelerate \
@@ -468,6 +468,7 @@ RUN /opt/conda/bin/mamba install -y -c conda-forge \
     seaborn \
     # pinned for sagemaker==2.233.0
     "cloudpickle==2.2.1" \
+    "numpy<2" \
  && /opt/conda/bin/mamba clean -afy
 
 # Add SageMaker DataParallel to LD_LIBRARY_PATH
