@@ -260,8 +260,10 @@ RUN pip install --no-cache-dir opencv-python mpi4py
 RUN curl -o /license.txt https://aws-dlc-licenses.s3.amazonaws.com/pytorch-2.5/license.txt
 
 COPY deep_learning_container.py /usr/local/bin/deep_learning_container.py
-
 RUN chmod +x /usr/local/bin/deep_learning_container.py
+
+COPY start_cuda_compat.sh /usr/local/bin/start_cuda_compat.sh
+RUN chmod +x /usr/local/bin/start_cuda_compat.sh
 
 # Removing the cache as it is needed for security verification
 RUN rm -rf /root/.cache | true
